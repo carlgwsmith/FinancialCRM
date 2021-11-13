@@ -7,6 +7,8 @@ const Home = () => {
   return (
     <div>
       <p>Home</p>
+      <p>To add clients to the database, click add client and complete form</p>
+      <p>To view clients click dashboard</p>
     </div>
   );
 }

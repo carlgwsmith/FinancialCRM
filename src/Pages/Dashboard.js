@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {db} from '../firebase'
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore'
+import { collection, getDocs, deleteDoc, doc, addDoc, updateDoc } from 'firebase/firestore'
 
 const Dashboard = () => {
   const [clients, setClients] = useState([])
   const [loading, setLoading] = useState(false)
+  // const [editing, setEditing] = useState(false)
 
   const ref = collection(db, "clients")
 
@@ -12,6 +13,11 @@ const Dashboard = () => {
     const clientDoc = doc(db, "clients", id);
     await deleteDoc(clientDoc)
   }
+  const updateClient = async (id, age) => {
+    const clientDoc = doc(db, "clients", id);
+    const newFields = { age: age + 1 };
+    await updateDoc(clientDoc, newFields);
+  };
 
   useEffect(() => {
     const getClients = async () =>{
@@ -20,7 +26,7 @@ const Dashboard = () => {
       console.log(clients)
     }
     getClients()
-  }, [deleteClient]);
+  }, []);
 
   if (loading) {
     return <div>
@@ -32,9 +38,15 @@ const Dashboard = () => {
       <h1>Client Dashboard</h1>
       {clients.map((client) => (
         <div key={client.id} style={{border: '1px solid #bababa', marginBottom:"10px"}}>
+          <div>
           <p>{client.firstName} {client.lastName}</p>
+          <p>Age: {client.age} <button onClick={() => {
+                updateClient(client.id, client.age);
+              }}>Increase Age</button></p>
           <p>${client.Assets}</p>
+          </div>
           <button onClick={()=> {deleteClient(client.id)}}>Delete Client</button>
+          {/* <button onClick={setEditing(true)}></button> */}
         </div>
       ))}
     </div>
