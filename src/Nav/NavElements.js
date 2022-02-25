@@ -99,3 +99,38 @@ text-decoration:none;
   color:#010606;
 }
 `
+export const SideNav = styled.div`
+height: 100%;
+width: 25%;
+position: fixed;
+z-index: 1;
+top: 70px;
+left:0;
+background: rgb(241,62,116);
+background: linear-gradient(180deg, rgba(241,62,116,1) 0%, rgba(90,0,33,1) 100%);
+display: flex;
+flex-direction: column;
+align-items: left;
+padding-left: 20px;
+padding-top:70px;
+`
+export const SideNavLink = styled(Link)`
+color:#fff;
+display:flex;
+font-weight:500;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 1em;
+padding: 0 1rem;
+height:100%;
+cursor: pointer;
+transition: 0.2s ease-in-out;
+&.active{
+  color:#ff9900;
+}
+&:hover{
+  letter-spacing:.10em;
+  color: #f3f3f3;
+  transition: 0.2s ease-in-out;
+}
+`
