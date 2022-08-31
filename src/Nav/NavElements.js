@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { NavLink as Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
-import * as theme from '../Assets/palette'
+import * as colors from '../Assets/palette';
 
+const primaryColor = '#0066FF';
+const textColor = '#676767';
 
 export const Nav = styled.nav`
 background: #fff;
@@ -15,9 +17,9 @@ border-bottom:2px solid #f3f3f3;
 `
 
 export const NavLink = styled(Link)`
-color:${theme.textColor};
+color: ${textColor};
 display:flex;
-font-weight:600;
+font-weight: medium;
 align-items:center;
 text-decoration: none;
 font-size:.9em;
@@ -26,30 +28,20 @@ height:100%;
 cursor: pointer;
 transition: 0.2s ease-in-out;
 &.active{
-  color:${theme.primaryColor};
+  color: ${primaryColor};
 }
 &:hover{
-  color: ${theme.primaryColor};
+  color: ${primaryColor};
   transition: 0.2s ease-in-out;
-}
-&:visited{
-  color: ${theme.textColor};
 }
 `
 export const NavBrand = styled(Link)`
-color:#383838;
 display:flex;
-font-size:1.3em;
-font-weight:600;
 align-items:center;
 text-decoration: none;
 padding: 0 2rem;
 height:100%;
 cursor: pointer;
-
-&.active{
-  color:#ff9900;
-}
 `
 export const Bars = styled(FaBars)`
 display:none;
@@ -132,7 +124,6 @@ transition: 0.2s ease-in-out;
   color:#ff9900;
 }
 &:hover{
-  letter-spacing:.10em;
   color: #f3f3f3;
   transition: 0.2s ease-in-out;
 }
