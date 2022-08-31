@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { NavLink as Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
+import * as theme from '../Assets/palette'
+
 
 export const Nav = styled.nav`
 background: #fff;
@@ -13,24 +15,25 @@ border-bottom:2px solid #f3f3f3;
 `
 
 export const NavLink = styled(Link)`
-color:#383838;
+color:${theme.textColor};
 display:flex;
-font-weight:500;
+font-weight:600;
 align-items:center;
 text-decoration: none;
-text-transform: uppercase;
 font-size:.9em;
 padding: 0 1rem;
 height:100%;
 cursor: pointer;
 transition: 0.2s ease-in-out;
 &.active{
-  color:#ff9900;
+  color:${theme.primaryColor};
 }
 &:hover{
-  letter-spacing:.10em;
-  color: #ffb80b;
+  color: ${theme.primaryColor};
   transition: 0.2s ease-in-out;
+}
+&:visited{
+  color: ${theme.textColor};
 }
 `
 export const NavBrand = styled(Link)`
@@ -101,13 +104,13 @@ text-decoration:none;
 `
 export const SideNav = styled.div`
 height: 100%;
-width: 25%;
+width: 18%;
 position: fixed;
 z-index: 1;
 top: 70px;
 left:0;
 background: rgb(241,62,116);
-background: linear-gradient(180deg, rgba(241,62,116,1) 0%, rgba(90,0,33,1) 100%);
+background: linear-gradient(180deg, rgba(0,26,94,1) 0%, rgba(0,45,165,1) 100%);
 display: flex;
 flex-direction: column;
 align-items: left;

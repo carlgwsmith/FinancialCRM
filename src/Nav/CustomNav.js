@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavBrand, NavLink, Nav, Bars, NavMenu } from './NavElements';
+import { ReactComponent as Logo } from '../Assets/finary_logo.svg';
+
 
 const CustomNav = ({ toggle }) => {
   return (
     <>
     <Nav>
-      <NavBrand to="/">Financial CRM</NavBrand>
+      <NavBrand to="/"><Logo width="200px"/></NavBrand>
       <Bars onClick={ toggle }/>
       <NavMenu>
         <NavLink to="/ClientInput" activeStyle>Add Client</NavLink>
